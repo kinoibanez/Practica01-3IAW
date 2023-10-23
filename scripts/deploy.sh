@@ -14,7 +14,7 @@ apt update
 
 #apt upgrade -y
 
-#Eliminamos descargas previas del repositorio /tmp
+#Eliminamos descargas previas del repositorio /tmp repositorio temporal.
 
 rm -rf /tmp/iaw-practica-lamp
 
@@ -31,6 +31,11 @@ mv /tmp/iaw-practica-lamp/src/* /var/www/html
 sed -i "s/database_name_here/$DB_NAME/" /var/www/html/config.php
 sed -i "s/username_here/$DB_USER/" /var/www/html/config.php
 sed -i "s/password_here/$DB_PASSWORD/" /var/www/html/config.php
+
+#Modificamos el script de base de datos. Hacemos uso del sed -i
+
+sed -i "s/lamp_db/$DB_NAME/" /tmp/iaw-practica-lamp/db/database.sql
+
 
 #Importamos el script de la base de datos
 
